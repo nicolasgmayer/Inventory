@@ -1,0 +1,91 @@
+﻿<Window x:Class="Inventory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="533" Width="866">
+    <Grid>
+        <!-- TabControl para separar las funcionalidades en pestañas -->
+        <TabControl Margin="0,0,0,10">
+            <!-- Pestaña para gestionar productos -->
+            <TabItem Header="Gestionar Producto">
+                <Grid Margin="10">
+                    <!-- Definir las filas y columnas para el layout -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- Fila para el nombre del producto -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Fila para la descripción -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Fila para el precio -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Fila para la imagen -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Fila para el botón de guardar -->
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <!-- Columna para las etiquetas -->
+                        <ColumnDefinition Width="*" />
+                        <!-- Columna para los campos de texto -->
+                        <ColumnDefinition Width="Auto"/>
+                        <!-- Columna para los botones (imagen) -->
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Controles para ingresar datos del producto -->
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="Nombre del Producto:" Margin="5"/>
+                    <TextBox x:Name="txtNombreProducto" Grid.Row="0" Grid.Column="1" Width="250" Margin="5"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="Descripción:" Margin="5"/>
+                    <TextBox x:Name="txtDescripcion" Grid.Row="1" Grid.Column="1" Width="250" Margin="5"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="Precio:" Margin="5"/>
+                    <TextBox x:Name="txtPrecio" Grid.Row="2" Grid.Column="1" Width="250" Margin="5"/>
+
+                    <!-- Fila para la imagen -->
+                    <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Text="Imagen:" Margin="5"/>
+                    <TextBox x:Name="txtImagenPath" Grid.Row="3" Grid.Column="1" Width="250" Margin="5" IsReadOnly="True"/>
+                    <Button Content="..." Grid.Row="3" Grid.Column="1" Height="25" VerticalAlignment="Center" Click="SeleccionarImagen_Click" Margin="486,0,186,0"/>
+
+                    <!-- Botón para guardar producto -->
+                    <Button Content="Guardar Producto" Grid.Row="4" Grid.Column="1" Width="150" Height="30" HorizontalAlignment="Center" Margin="10" Click="Guardar_Click"/>
+                </Grid>
+            </TabItem>
+
+
+            <!-- Pestaña para el DataGrid y los botones de acción -->
+            <!-- Pestaña para el DataGrid y los botones de acción -->
+            <!-- Pestaña para el DataGrid y los botones de acción -->
+            <TabItem Header="Productos">
+                <Grid Margin="10">
+                    <!-- Definir las filas y columnas para el layout -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <!-- Fila para el DataGrid -->
+                        <RowDefinition Height="Auto" />
+                        <!-- Fila para los botones -->
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <!-- Columna para el contenido -->
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Sección del DataGrid para visualizar productos -->
+                    <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="5">
+                        <DataGrid x:Name="ProductosDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CanUserSortColumns="False" HeadersVisibility="Column" IsReadOnly="True" />
+                    </ScrollViewer>
+
+                    <!-- Botones de acción -->
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <Button Content="Generar Reporte" Width="150" Height="30" Margin="5" Click="GenerarReporteButton_Click"/>
+                        <Button Content="Guardar Cambios" Width="150" Height="30" Margin="5" Click="GuardarCambiosButton_Click"/>
+                        <Button Content="Eliminar Producto" Width="150" Height="30" Margin="5" Click="EliminarProductoButton_Click"/>
+                        <Button Content="Importar Excel" Width="150" Height="30" Margin="5" Click="ImportarExcelButton_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+
+        </TabControl>
+    </Grid>
+</Window>
